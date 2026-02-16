@@ -1,0 +1,60 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+ 
+int main() {
+    int test;
+    cin >> test;
+    int lenperm;
+    while(test--)
+    {
+        cin >> lenperm;
+        if(lenperm < 5)
+        {
+            cout << -1;
+            continue;
+        }
+        vector<int> permarray;
+        vector<int> odd_arr;
+        vector<int> even_arr;
+        for(int i = 1; i<=lenperm; i++)
+        {
+            if(i % 2 == 0) 
+            {
+                even_arr.push_back(i);
+            }
+            else 
+            {
+                odd_arr.push_back(i);
+            }
+        }
+        for(int i =0; i<even_arr.size(); i++)
+        {
+            if(even_arr[i] == 4)
+            {
+                continue;
+            }
+            else{
+                permarray.push_back(even_arr[i]);
+            }
+        }
+        permarray.push_back(4);
+        permarray.push_back(5);
+        for(int i = 0; i< odd_arr.size(); i++)
+        {
+            if(odd_arr[i] == 5)
+            {
+                continue;
+            }
+            else{
+                permarray.push_back(odd_arr[i]);
+            }
+        }
+        for(int i : permarray)
+        {
+            cout << i << " ";
+        }    
+        cout << endl;
+    }
+    return 0;
+}
